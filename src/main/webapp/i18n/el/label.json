@@ -1,0 +1,22 @@
+{
+    "bugTrackerJHipsterApp": {
+        "label": {
+            "home": {
+                "title": "Labels",
+                "createLabel": "Δημιουργήστε ένα νέο Label",
+                "createOrEditLabel": "Δημιουργήστε η επεξεργαστείτε ένα Label"
+            },
+            "created": "Ένα νέο Label έχει δημιουργηθεί με αναγνωριστικό {{ param }}",
+            "updated": "Ένα Label έχει ενημερωθεί με αναγνωριστικό {{ param }}",
+            "deleted": "Ένα Label έχει διαγραφτεί με αναγνωριστικό {{ param }}",
+            "delete": {
+                "question": "Είστε βέβαιοι όταν θέλετε να διαγράψετε το ακόλουθο Label {{ id }};"
+            },
+            "detail": {
+                "title": "Label"
+            },
+            "label": "Label",
+            "ticket": "Ticket"
+        }
+    }
+}

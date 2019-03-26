@@ -1,0 +1,21 @@
+{
+    "bugTrackerJHipsterApp": {
+        "project": {
+            "home": {
+                "title": "Projects",
+                "createLabel": "Δημιουργήστε ένα νέο Project",
+                "createOrEditLabel": "Δημιουργήστε η επεξεργαστείτε ένα Project"
+            },
+            "created": "Ένα νέο Project έχει δημιουργηθεί με αναγνωριστικό {{ param }}",
+            "updated": "Ένα Project έχει ενημερωθεί με αναγνωριστικό {{ param }}",
+            "deleted": "Ένα Project έχει διαγραφτεί με αναγνωριστικό {{ param }}",
+            "delete": {
+                "question": "Είστε βέβαιοι όταν θέλετε να διαγράψετε το ακόλουθο Project {{ id }};"
+            },
+            "detail": {
+                "title": "Project"
+            },
+            "name": "Name"
+        }
+    }
+}

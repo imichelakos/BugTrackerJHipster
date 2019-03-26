@@ -1,0 +1,27 @@
+{
+    "bugTrackerJHipsterApp": {
+        "ticket": {
+            "home": {
+                "title": "Tickets",
+                "createLabel": "Δημιουργήστε ένα νέο Ticket",
+                "createOrEditLabel": "Δημιουργήστε η επεξεργαστείτε ένα Ticket"
+            },
+            "created": "Ένα νέο Ticket έχει δημιουργηθεί με αναγνωριστικό {{ param }}",
+            "updated": "Ένα Ticket έχει ενημερωθεί με αναγνωριστικό {{ param }}",
+            "deleted": "Ένα Ticket έχει διαγραφτεί με αναγνωριστικό {{ param }}",
+            "delete": {
+                "question": "Είστε βέβαιοι όταν θέλετε να διαγράψετε το ακόλουθο Ticket {{ id }};"
+            },
+            "detail": {
+                "title": "Ticket"
+            },
+            "title": "Title",
+            "description": "Description",
+            "dueDate": "Due Date",
+            "done": "Done",
+            "project": "Project",
+            "assignedTo": "Assigned To",
+            "label": "Label"
+        }
+    }
+}
