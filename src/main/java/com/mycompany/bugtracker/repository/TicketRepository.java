@@ -30,4 +30,7 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
     @Query("select ticket from Ticket ticket left join fetch ticket.labels where ticket.id =:id")
     Optional<Ticket> findOneWithEagerRelationships(@Param("id") Long id);
 
+    Page<Ticket> findAllByOrderByDueDateAsc(Pageable pageable);
+
+
 }

@@ -21,6 +21,12 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.security.access.annotation.Secured;
+import com.mycompany.bugtracker.security.AuthoritiesConstants;
+import io.swagger.annotations.ApiParam;
+import org.springframework.data.domain.PageImpl;
+
+
 /**
  * REST controller for managing Ticket.
  */
@@ -92,7 +98,8 @@ public class TicketResource {
         if (eagerload) {
             page = ticketRepository.findAllWithEagerRelationships(pageable);
         } else {
-            page = ticketRepository.findAll(pageable);
+            //page = ticketRepository.findAll(pageable);
+            page = ticketRepository.findAllByOrderByDueDateAsc(pageable);
         }
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, String.format("/api/tickets?eagerload=%b", eagerload));
         return ResponseEntity.ok().headers(headers).body(page.getContent());
@@ -118,9 +125,27 @@ public class TicketResource {
      * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/tickets/{id}")
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Void> deleteTicket(@PathVariable Long id) {
         log.debug("REST request to delete Ticket : {}", id);
         ticketRepository.deleteById(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
+
+    @GetMapping("/tickets/self")
+    public ResponseEntity<List<Ticket>> getAllSelfTickets(@ApiParam Pageable pageable, @RequestParam(required = false, defaultValue = "false") boolean eagerload){
+    log.debug("REST request to get a page of user's Tickets");
+    Page<Ticket> page;
+    if (eagerload) {
+        page = ticketRepository.findAllWithEagerRelationships(pageable);
+    } else {
+        page = new PageImpl<>(ticketRepository.findByAssignedToIsCurrentUser());
+    }
+    HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, String.format("/api/tickets/self?eagerload=%b", eagerload));
+    return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    
+
+
 }

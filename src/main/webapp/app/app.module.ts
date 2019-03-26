@@ -20,6 +20,7 @@ import { BugTrackerJHipsterEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import { MyticketsComponent } from './mytickets/mytickets.component';
 
 @NgModule({
     imports: [
@@ -40,7 +41,15 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         BugTrackerJHipsterEntityModule,
         BugTrackerJHipsterAppRoutingModule
     ],
-    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
+    declarations: [
+        JhiMainComponent,
+        NavbarComponent,
+        ErrorComponent,
+        PageRibbonComponent,
+        ActiveMenuDirective,
+        FooterComponent,
+        MyticketsComponent
+    ],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,
